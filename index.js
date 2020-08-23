@@ -73,3 +73,23 @@ function sumTo3(n) {
 }
 
 alert( sumTo3(100) );
+
+//Challenge 2 - Calculate factorial
+// The factorial of a natural number is a number multiplied by "number minus one", then by "number minus two", and so on till 1. The factorial of n is denoted as n!
+
+// We can write a definition of factorial like this:
+// n! = n * (n - 1) * (n - 2) * ...*1
+
+//Solution 1 - Recusion with basis of 1
+function factorial(n) {
+  return (n != 1) ? n * factorial(n - 1) : 1;
+}
+
+alert( factorial(5) ); // 120
+
+//Solution 2 - Recursion with basis of 2
+function factorial2(n) {
+  return n ? n * factorial(n - 1) : 1;
+}
+
+alert( factorial2(5) ); // 120
