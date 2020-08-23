@@ -93,3 +93,163 @@ function factorial2(n) {
 }
 
 alert( factorial2(5) ); // 120
+
+//Challenge 3 - Fibonacci numbers
+
+
+//Solution 1 - Iterative with basis of 0
+function fib(n){
+  let arr = [0, 1];
+  for (let i = 2; i < n + 1; i++){
+    arr.push(arr[i - 2] + arr[i -1])
+  }
+ return arr[n]
+}
+
+//Solution 2 - Recursion
+// function fib(n) { 
+//   if (n < 2 ) {
+//     return n
+//   } else {
+//     return fib(n-1) + fib(n-2)
+//   }
+// }
+
+alert(fib(3)); // 2
+alert(fib(7)); // 13
+alert(fib(77)); // 5527939700884757
+
+//Solution 3 - Iterative with basis of 1
+
+function fib2(n) {
+  let a = 1;
+  let b = 1;
+  for (let i = 3; i <= n; i++) {
+    let c = a + b;
+    a = b;
+    b = c;
+  }
+  return b;
+}
+
+alert(fib2(3)); // 2
+alert(fib2(7)); // 13
+alert(fib2(77)); // 5527939700884757
+
+//Challenge 4 - Output a single-linked list
+// Let’s say we have a single-linked list (as described in the chapter Recursion and stack):
+
+//Solution 1 - Loop based solution
+
+let list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+function printList(list) {
+  let tmp = list;
+
+  while (tmp) {
+    alert(tmp.value);
+    tmp = tmp.next;
+  }
+
+}
+
+printList(list);
+
+//Solution 2 - Recursion
+let list2 = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+function printList2(list2) {
+
+  alert(list2.value); // output the current item
+
+  if (list2.next) {
+    printList2(list2.next); // do the same for the rest of the list
+  }
+
+}
+
+printList2(list);
+
+//Challenge 5 - Output a single-linked list in the reverse order
+
+//Solution 1 - Recursion
+let listReverse = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+function printReverseList(listReverse) {
+
+  if (listReverse.next) {
+    printReverseList(listReverse.next);
+  }
+
+  alert(listReverse.value);
+}
+
+printReverseList(listReverse);
+
+//Solution 2 - Iterative loop
+
+let list4 = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+function printReverseList2(list4) {
+  let arr = [];
+  let tmp = list4;
+
+  while (tmp) {
+    arr.push(tmp.value);
+    tmp = tmp.next;
+  }
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    alert( arr[i] );
+  }
+}
+
+printReverseList2(list4);
